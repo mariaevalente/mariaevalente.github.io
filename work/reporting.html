@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reporting Platform · Elisa Valente</title>
+  <meta name="description" content="An analytics application and a one-file monthly client report over a building asset model and a time-series store.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230b1220'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-size='14' font-weight='700' text-anchor='middle' fill='%23f59e0b'%3EEV%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/css/site.css?v=2026100604">
+  <script type="module" src="../assets/js/isotherms.js?v=2026100604"></script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker>
+    <marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrowhead accent"/></marker>
+  </defs></svg>
+
+  <div class="night">
+    <svg class="isotherms" aria-hidden="true" data-seed="59"></svg>
+    <header class="site-header"><div class="wrap">
+      <a class="mark" href="../index.html">Elisa Valente<span>.</span></a>
+      <nav class="menu" aria-label="Main"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a class="opt" href="../Elisa_Valente_Portfolio.pdf">PDF</a><a href="#contact">Contact</a></nav>
+    </div></header>
+    <div class="case-hero"><div class="wrap">
+      <a class="back" href="../index.html#work">All work</a>
+      <h1>Analytics and reporting platform</h1>
+      <p class="summary">An analytics application and a one-file monthly report for clients, built over the company's asset model and time-series store.</p>
+      <dl class="meta">
+        <div><dt>Role</dt><dd>Sole developer</dd></div>
+        <div><dt>Year</dt><dd>2026</dd></div>
+        <div><dt>Stack</dt><dd>Python, Streamlit, Plotly, PostgreSQL, MongoDB, Docker</dd></div>
+        <div><dt>Size</dt><dd>5 pages, about 14,000 lines</dd></div>
+      </dl>
+    </div></div>
+  </div>
+
+  <main class="case"><div class="wrap">
+    <figure>
+      <div class="report-slot" data-report-slot>
+        <img src="../img/report-preview.jpg" alt="First page of the client report: comfort held 95%, consumption 5,625 kWh, saved 2,025 kWh, and monthly consumption against the fixed schedule" width="900" height="983">
+        <div class="overlay">
+          <button class="btn btn-teal" type="button" data-load-report>Show the full report here</button>
+          <a class="btn btn-ghost" href="../report/bandora-4all-demo.html" target="_blank" rel="noopener">Open it in a new tab</a>
+        </div>
+      </div>
+      <figcaption>An export from the production renderer, fed with the simulated restaurant for April to June and measured against the same building on a fixed schedule. The file opens offline and every chart in it can be zoomed.</figcaption>
+    </figure>
+
+    <div class="block">
+      <h2>What it does</h2>
+      <p>For one building or a whole portfolio, the application shows what the controller did, the comfort it held, what the building consumed and saved, and how complete the data behind those numbers is. At the end of the month it writes the same content into a single HTML report for the client, closing with the Valente chart for every zone.</p>
+    </div>
+
+    <div class="numbers">
+      <div><span class="num">13 s → 3 ms</span><span class="what">for a filtered time-series read, after I traced full collection scans and specified a compound index with the data team</span></div>
+      <div><span class="num">4× faster reports</span><span class="what">The monthly report took almost a minute to open. After I reworked the database queries and indexes, it opens in under 14 seconds.</span></div>
+    </div>
+
+    <figure class="panel" style="max-width:860px">
+      <div class="scroll-x">
+        <svg class="diagram" viewBox="0 0 620 400" style="min-width:520px" role="img" aria-label="An asset model in PostgreSQL and a time-series store in MongoDB feed the analytics application in a Docker container, which sits behind an authenticating proxy and writes the client report.">
+          <g font-size="13.5">
+            <rect class="box soft" x="10" y="30" width="190" height="96" rx="12"/>
+            <text x="105" y="60" text-anchor="middle" font-weight="600">Asset model</text>
+            <text x="105" y="80" text-anchor="middle" class="sub" font-size="12">PostgreSQL</text>
+            <text x="105" y="100" text-anchor="middle" class="sub" font-size="12">buildings, devices, signals,</text>
+            <text x="105" y="116" text-anchor="middle" class="sub" font-size="12">baselines</text>
+            <rect class="box soft" x="10" y="150" width="190" height="96" rx="12"/>
+            <text x="105" y="180" text-anchor="middle" font-weight="600">Time series</text>
+            <text x="105" y="200" text-anchor="middle" class="sub" font-size="12">MongoDB</text>
+            <text x="105" y="220" text-anchor="middle" class="sub" font-size="12">readings, controller actions,</text>
+            <text x="105" y="236" text-anchor="middle" class="sub" font-size="12">energy roll-ups, weather</text>
+            <rect class="box accent" x="250" y="20" width="200" height="236" rx="12"/>
+            <text x="350" y="48" text-anchor="middle" font-weight="600">Analytics app</text>
+            <text x="350" y="66" text-anchor="middle" class="sub" font-size="12">Streamlit and Plotly, in Docker</text>
+            <g font-size="12.5" class="sub">
+              <rect class="box" x="268" y="80" width="164" height="28" rx="7"/><text x="350" y="99" text-anchor="middle">Portfolio and alerts</text>
+              <rect class="box" x="268" y="114" width="164" height="28" rx="7"/><text x="350" y="133" text-anchor="middle">Building</text>
+              <rect class="box" x="268" y="148" width="164" height="28" rx="7"/><text x="350" y="167" text-anchor="middle">Reports</text>
+              <rect class="box" x="268" y="182" width="164" height="28" rx="7"/><text x="350" y="201" text-anchor="middle">Data quality</text>
+            </g>
+            <text x="350" y="240" text-anchor="middle" class="sub" font-size="11.5">pooled, queued and cached reads</text>
+            <rect class="box soft" x="490" y="96" width="120" height="84" rx="12"/>
+            <text x="550" y="126" text-anchor="middle" font-weight="600">Auth proxy</text>
+            <text x="550" y="146" text-anchor="middle" class="sub" font-size="12">team and</text>
+            <text x="550" y="162" text-anchor="middle" class="sub" font-size="12">client access</text>
+            <rect class="box" x="250" y="300" width="200" height="72" rx="12"/>
+            <text x="350" y="330" text-anchor="middle" font-weight="600">Client report</text>
+            <text x="350" y="350" text-anchor="middle" class="sub" font-size="12">one HTML file, opens offline</text>
+            <path class="edge" d="M202 78 H246" marker-end="url(#arrow)"/>
+            <path class="edge" d="M202 198 H246" marker-end="url(#arrow)"/>
+            <path class="edge" d="M452 138 H486" marker-end="url(#arrow)"/>
+            <path class="edge accent" d="M350 258 V296" marker-end="url(#arrow-accent)"/>
+          </g>
+        </svg>
+      </div>
+    </figure>
+
+    <div class="block">
+      <h2>Rules behind the numbers</h2>
+      <ul>
+        <li>A month's saving only counts when the building and its reference cover the same stretch of time. Months still in progress, or with a meter installed halfway, are shown but left out, with the reason printed next to them.</li>
+        <li>Comfort is weighted by time and judged against each weekday's own opening hours.</li>
+        <li>Every read that fails is reported on the page, so a broken query never looks like an empty building.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h2>Packaging</h2>
+      <p>The application ships as a multi-stage Docker image that runs as a non-root user. The build checks its imports and assets before it finishes, the container has a health check, and its port is bound to localhost behind an authenticating proxy.</p>
+    </div>
+
+    <a class="next" href="benchmark.html"><span>Next project</span><strong>Savings benchmark →</strong></a>
+  </div></main>
+
+  <footer class="night site-footer" id="contact">
+    <svg class="isotherms" aria-hidden="true" data-seed="23"></svg>
+    <div class="wrap" style="position:relative">
+      <h2>Get in touch.</h2>
+      <p>If you'd like to talk about a role or a project, write to me.</p>
+      <div class="actions">
+        <a class="btn btn-amber" href="mailto:mariaemvalente13@gmail.com">mariaemvalente13@gmail.com</a>
+        <a class="btn btn-ghost-light" href="../Elisa_Valente_Portfolio.pdf">Download the PDF</a>
+      </div>
+      <div class="fine"><span>© 2026 Elisa Valente</span><span>Simulated and anonymised data only. The work shown was done at Bandora Systems.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    // The report is 5.8 MB, so it loads only when asked for.
+    document.querySelector("[data-load-report]").addEventListener("click", () => {
+      const frame = document.createElement("iframe");
+      frame.className = "report-frame";
+      frame.title = "Client report, simulated quick-service restaurant, April to June";
+      frame.src = "../report/bandora-4all-demo.html";
+      document.querySelector("[data-report-slot]").replaceWith(frame);
+    });
+  </script>
+</body>
+</html>

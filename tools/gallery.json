@@ -1,0 +1,18 @@
+{
+  "source": "img/trips",
+  "output": "img/gallery",
+  "photos": [
+    {"file": "[2024]usa/lv/IMG_8378.HEIC", "caption": "Antelope Canyon, 2024"},
+    {"file": "[2024]usa/lv/IMG_0044.CR2", "caption": "Grand Canyon, 2024"},
+    {"file": "[2024]usa/la/IMG_0303.CR2", "caption": "Los Angeles, 2024"},
+    {"file": "[2024]usa/ny/IMG_1442.CR2", "caption": "New York, 2024"},
+    {"file": "[2025]england/IMG_1132.HEIC", "caption": "England, 2025"},
+    {"file": "[2025]paris/IMG_20250608_191244.jpg", "caption": "Paris, 2025"},
+    {"file": "[2025]greece/IMG_3002.HEIC", "caption": "Greece, 2025"},
+    {"file": "[2025]greece/IMG_3598.HEIC", "caption": "Santorini, 2025"},
+    {"file": "[2026]andorra/IMG_1418.HEIC", "caption": "Andorra, 2026"},
+    {"file": "[2026]turkey/IMG_4186.JPG", "caption": "Cappadocia, 2026"},
+    {"file": "[2026]turkey/IMG_4611.JPG", "caption": "Cappadocia, 2026"},
+    {"file": "[2026]turkey/IMG_5253.JPG", "caption": "Turkey, 2026"}
+  ]
+}

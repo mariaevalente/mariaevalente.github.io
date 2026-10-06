@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patent and Synthetic Data · Elisa Valente</title>
+  <meta name="description" content="Patent application WO 2026/033501: HVAC control with forecasting models pre-trained on synthetic data from a digital twin.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230b1220'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-size='14' font-weight='700' text-anchor='middle' fill='%23f59e0b'%3EEV%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/css/site.css?v=2026100604">
+  <script type="module" src="../assets/js/isotherms.js?v=2026100604"></script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker>
+    <marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrowhead accent"/></marker>
+  </defs></svg>
+
+  <div class="night">
+    <svg class="isotherms" aria-hidden="true" data-seed="5"></svg>
+    <header class="site-header"><div class="wrap">
+      <a class="mark" href="../index.html">Elisa Valente<span>.</span></a>
+      <nav class="menu" aria-label="Main"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a class="opt" href="../Elisa_Valente_Portfolio.pdf">PDF</a><a href="#contact">Contact</a></nav>
+    </div></header>
+    <div class="case-hero"><div class="wrap">
+      <a class="back" href="../index.html#work">All work</a>
+      <h1>Patent and synthetic data</h1>
+      <p class="summary">Pre-training a building's forecasting models on synthetic data from its digital twin, so that control works from the first day.</p>
+      <dl class="meta">
+        <div><dt>Role</dt><dd>First inventor</dd></div>
+        <div><dt>Priority</dt><dd>9 August 2024</dd></div>
+        <div><dt>Published</dt><dd>12 February 2026</dd></div>
+        <div><dt>Applicant</dt><dd>Bandora Systems SA</dd></div>
+      </dl>
+    </div></div>
+  </div>
+
+  <main class="case"><div class="wrap">
+    <div class="pair" style="max-width:var(--wide);margin:0 auto 64px;align-items:start">
+      <div class="patent">
+        <div class="no">WO 2026/033501 A1</div>
+        <h3>Method for controlling HVAC equipment of a building, computer system and computer program product thereof</h3>
+        <dl>
+          <dt>Inventors</dt><dd><strong>Maria Elisa Maciel Valente</strong>, Raúl Teixeira, Georgios Karafotias, Márcia Pereira</dd>
+          <dt>Applicant</dt><dd>Bandora Systems SA</dd>
+        </dl>
+        <a class="btn btn-ghost" href="https://patents.google.com/patent/WO2026033501A1/en" target="_blank" rel="noopener">Read it on Google Patents</a>
+      </div>
+      <div class="block" style="margin:0">
+        <h2>The idea</h2>
+        <p>A new building comes with almost no useful history. Its equipment has only ever run one way, so there is nothing to learn the effect of other actions from. The method fills that gap with a digital twin. It simulates the building across a wide range of actions, combines that synthetic data with whatever was measured, and trains the energy and temperature forecasters on both. Those forecasters then drive the choice of operating settings.</p>
+      </div>
+    </div>
+
+    <figure class="panel">
+      <div class="scroll-x">
+        <svg class="diagram" viewBox="0 0 960 230" style="min-width:680px" role="img" aria-label="A calibrated digital twin generates synthetic scenarios that pre-train the forecasters, which drive an optimiser that sets the building's equipment; real data then retrains the forecasters, with drift monitoring.">
+          <g font-size="13.5">
+            <rect class="box soft" x="10" y="30" width="170" height="80" rx="12"/>
+            <text x="95" y="62" text-anchor="middle" font-weight="600">Digital twin</text>
+            <text x="95" y="82" text-anchor="middle" class="sub" font-size="12">EnergyPlus, calibrated</text>
+            <text x="95" y="98" text-anchor="middle" class="sub" font-size="12">on the real building</text>
+            <rect class="box" x="215" y="30" width="170" height="80" rx="12"/>
+            <text x="300" y="62" text-anchor="middle" font-weight="600">Synthetic scenarios</text>
+            <text x="300" y="82" text-anchor="middle" class="sub" font-size="12">stress tests across</text>
+            <text x="300" y="98" text-anchor="middle" class="sub" font-size="12">modes and setpoints</text>
+            <rect class="box accent" x="420" y="30" width="170" height="80" rx="12"/>
+            <text x="505" y="62" text-anchor="middle" font-weight="600">Pre-trained models</text>
+            <text x="505" y="82" text-anchor="middle" class="sub" font-size="12">energy and indoor</text>
+            <text x="505" y="98" text-anchor="middle" class="sub" font-size="12">temperature forecasts</text>
+            <rect class="box" x="625" y="30" width="150" height="80" rx="12"/>
+            <text x="700" y="62" text-anchor="middle" font-weight="600">Optimiser</text>
+            <text x="700" y="82" text-anchor="middle" class="sub" font-size="12">chooses the</text>
+            <text x="700" y="98" text-anchor="middle" class="sub" font-size="12">operating settings</text>
+            <rect class="box soft" x="810" y="30" width="140" height="80" rx="12"/>
+            <text x="880" y="62" text-anchor="middle" font-weight="600">Building</text>
+            <text x="880" y="82" text-anchor="middle" class="sub" font-size="12">controlled from</text>
+            <text x="880" y="98" text-anchor="middle" class="sub" font-size="12">the first day</text>
+            <path class="edge" d="M182 70 H211" marker-end="url(#arrow)"/>
+            <path class="edge" d="M387 70 H416" marker-end="url(#arrow)"/>
+            <path class="edge accent" d="M592 70 H621" marker-end="url(#arrow-accent)"/>
+            <path class="edge" d="M777 70 H806" marker-end="url(#arrow)"/>
+            <rect class="box" x="560" y="150" width="300" height="56" rx="12"/>
+            <text x="710" y="174" text-anchor="middle" font-weight="600">Real data, then retraining</text>
+            <text x="710" y="194" text-anchor="middle" class="sub" font-size="12">monthly refits, drift tracked per fold</text>
+            <path class="edge" d="M880 112 V178 H864" marker-end="url(#arrow)"/>
+            <path class="edge" d="M556 178 H505 V114" marker-end="url(#arrow)"/>
+          </g>
+        </svg>
+      </div>
+    </figure>
+
+    <div class="block">
+      <h2>Where it started</h2>
+      <p>In 2022 I built a warm-up optimiser: XGBoost forecasts of zone temperature and HVAC consumption, searched with simulated annealing over the morning schedule, trading energy or cost under time-of-use tariffs against comfort. Simulated on a 15-zone medium office, it cut HVAC cost inside the warm-up window by 27 to 45%, which is 2.4 to 2.9% of the annual HVAC bill. In an earlier funded R&amp;D project, validated in EnergyPlus, the warm-up saving was 12.5%.</p>
+      <h2 style="margin-top:36px">Synthetic first, real data next</h2>
+      <p>On the first pilot restaurant, 24 zone-level models were trained on synthetic stress-test data to get past the cold start. They were then retrained every month on real data, with drift tracked fold by fold.</p>
+    </div>
+
+    <div class="block">
+      <h2>Talks</h2>
+      <p>I presented the approach as "Data Alchemy: The Power of Synthetic Solutions" at Ai4 2024 in Las Vegas and at AI Nest 2026 in Coimbra. The talk covers why generic data does not solve the cold start, what a twin can generate that history cannot, such as rare events and under-represented operating modes, and where it stops: the gap between the simulation and the real building.</p>
+    </div>
+    <div class="talks" style="max-width:var(--wide);margin:0 auto 64px">
+      <figure><img src="../img/talk/ai4-title.jpg" alt="Title slide of Data Alchemy, The Power of Synthetic Solutions, at Ai4, MGM Grand Las Vegas, August 2024" loading="lazy" width="1280" height="720"><figcaption>Ai4 2024, Las Vegas</figcaption></figure>
+      <figure><img src="../img/talk/ainest-title.jpg" alt="Title slide of Data Alchemy, The Power of Synthetic Solutions, at AI Nest, Coimbra, May 2026" loading="lazy" width="1280" height="720"><figcaption>AI Nest 2026, Coimbra</figcaption></figure>
+      <figure><img src="../img/talk/digital-twins.jpg" alt="Slide on what digital twins add: behaviour simulation, overcoming data scarcity, product quality" loading="lazy" width="1280" height="720"><figcaption>What a twin adds</figcaption></figure>
+      <figure><img src="../img/talk/synthetic-for-optimizers.jpg" alt="Slide on synthetic data tailored to optimisers: customisation, data imbalance, edge cases" loading="lazy" width="1280" height="720"><figcaption>Synthetic data for optimisers</figcaption></figure>
+    </div>
+
+    <a class="next" href="simulation.html"><span>Next project</span><strong>A simulation platform for any building →</strong></a>
+  </div></main>
+
+  <footer class="night site-footer" id="contact">
+    <svg class="isotherms" aria-hidden="true" data-seed="23"></svg>
+    <div class="wrap" style="position:relative">
+      <h2>Get in touch.</h2>
+      <p>If you'd like to talk about a role or a project, write to me.</p>
+      <div class="actions">
+        <a class="btn btn-amber" href="mailto:mariaemvalente13@gmail.com">mariaemvalente13@gmail.com</a>
+        <a class="btn btn-ghost-light" href="../Elisa_Valente_Portfolio.pdf">Download the PDF</a>
+      </div>
+      <div class="fine"><span>© 2026 Elisa Valente</span><span>Simulated and anonymised data only. The work shown was done at Bandora Systems.</span></div>
+    </div>
+  </footer>
+</body>
+</html>

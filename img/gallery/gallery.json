@@ -1,0 +1,86 @@
+[
+ {
+  "src": "img/gallery/photo-01.jpg?v=24bd7a74",
+  "thumb": "img/gallery/photo-01-thumb.jpg?v=2eee8407",
+  "caption": "Antelope Canyon, 2024",
+  "width": 1200,
+  "height": 1600
+ },
+ {
+  "src": "img/gallery/photo-02.jpg?v=912030de",
+  "thumb": "img/gallery/photo-02-thumb.jpg?v=f344d7b0",
+  "caption": "Grand Canyon, 2024",
+  "width": 1600,
+  "height": 1065
+ },
+ {
+  "src": "img/gallery/photo-03.jpg?v=36817dcd",
+  "thumb": "img/gallery/photo-03-thumb.jpg?v=173a010c",
+  "caption": "Los Angeles, 2024",
+  "width": 1065,
+  "height": 1600
+ },
+ {
+  "src": "img/gallery/photo-04.jpg?v=ff9759b0",
+  "thumb": "img/gallery/photo-04-thumb.jpg?v=28a759e2",
+  "caption": "New York, 2024",
+  "width": 1600,
+  "height": 1065
+ },
+ {
+  "src": "img/gallery/photo-05.jpg?v=ea644a5c",
+  "thumb": "img/gallery/photo-05-thumb.jpg?v=ebfd4ead",
+  "caption": "England, 2025",
+  "width": 1200,
+  "height": 1600
+ },
+ {
+  "src": "img/gallery/photo-06.jpg?v=be92c4bb",
+  "thumb": "img/gallery/photo-06-thumb.jpg?v=5c4e3541",
+  "caption": "Paris, 2025",
+  "width": 1600,
+  "height": 1200
+ },
+ {
+  "src": "img/gallery/photo-07.jpg?v=30916939",
+  "thumb": "img/gallery/photo-07-thumb.jpg?v=a4a6215d",
+  "caption": "Greece, 2025",
+  "width": 1600,
+  "height": 1200
+ },
+ {
+  "src": "img/gallery/photo-08.jpg?v=d7a6086c",
+  "thumb": "img/gallery/photo-08-thumb.jpg?v=5cb02c49",
+  "caption": "Santorini, 2025",
+  "width": 1200,
+  "height": 1600
+ },
+ {
+  "src": "img/gallery/photo-09.jpg?v=c4bf078f",
+  "thumb": "img/gallery/photo-09-thumb.jpg?v=0ce8c2c7",
+  "caption": "Andorra, 2026",
+  "width": 1200,
+  "height": 1600
+ },
+ {
+  "src": "img/gallery/photo-10.jpg?v=745bab18",
+  "thumb": "img/gallery/photo-10-thumb.jpg?v=e641fd72",
+  "caption": "Cappadocia, 2026",
+  "width": 1200,
+  "height": 1600
+ },
+ {
+  "src": "img/gallery/photo-11.jpg?v=02d1fc7e",
+  "thumb": "img/gallery/photo-11-thumb.jpg?v=1b95592c",
+  "caption": "Cappadocia, 2026",
+  "width": 1200,
+  "height": 1600
+ },
+ {
+  "src": "img/gallery/photo-12.jpg?v=7030dc6f",
+  "thumb": "img/gallery/photo-12-thumb.jpg?v=81020f7b",
+  "caption": "Turkey, 2026",
+  "width": 1200,
+  "height": 1600
+ }
+]

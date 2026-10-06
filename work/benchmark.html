@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Savings Benchmark · Elisa Valente</title>
+  <meta name="description" content="ASHRAE Guideline 14 change-point baselines for measuring energy savings, with an interactive explainer on synthetic data.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230b1220'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-size='14' font-weight='700' text-anchor='middle' fill='%23f59e0b'%3EEV%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/css/site.css?v=2026100604">
+  <script src="../assets/vendor/plotly.min.js" defer></script>
+  <script type="module" src="../assets/js/isotherms.js?v=2026100604"></script>
+  <script type="module" src="../assets/js/benchmark.js?v=2026100604"></script>
+</head>
+<body>
+  <div class="night">
+    <svg class="isotherms" aria-hidden="true" data-seed="67"></svg>
+    <header class="site-header"><div class="wrap">
+      <a class="mark" href="../index.html">Elisa Valente<span>.</span></a>
+      <nav class="menu" aria-label="Main"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a class="opt" href="../Elisa_Valente_Portfolio.pdf">PDF</a><a href="#contact">Contact</a></nav>
+    </div></header>
+    <div class="case-hero"><div class="wrap">
+      <a class="back" href="../index.html#work">All work</a>
+      <h1>Savings benchmark</h1>
+      <p class="summary">A baseline that holds up when savings are invoiced, built on ASHRAE Guideline 14 change-point models and reported with its uncertainty.</p>
+      <dl class="meta">
+        <div><dt>Role</dt><dd>Method design and supervision</dd></div>
+        <div><dt>Team</dt><dd>Implemented by a building analyst</dd></div>
+        <div><dt>Years</dt><dd>2023–2026</dd></div>
+        <div><dt>Standard</dt><dd>ASHRAE Guideline 14</dd></div>
+      </dl>
+    </div></div>
+  </div>
+
+  <main class="case"><div class="wrap">
+    <div class="numbers">
+      <div><span class="num">31 of 32</span><span class="what">buildings with a compliant baseline model</span></div>
+      <div><span class="num">5.6%</span><span class="what">median CV(RMSE) of the models selected</span></div>
+      <div><span class="num">5 forms</span><span class="what">of change-point model compete for each building</span></div>
+    </div>
+
+    <div class="block">
+      <h2>Why it matters</h2>
+      <p>In a contract paid from savings, the baseline is what gets invoiced. The question is what the building would have used without the controller, and how sure we can be of the answer.</p>
+      <h2 style="margin-top:36px">The approach</h2>
+      <p>I started with a climate-corrected baseline that relates consumption to heating and cooling degree-hours. It grew into a tournament. Five inverse change-point models are fitted to at least a year of consumption against outdoor temperature, and the most accurate model that meets CV(RMSE) ≤ 15% and |NMBE| ≤ 5% becomes the building's benchmark.</p>
+      <p>The explainer below rebuilds the method on a synthetic building. Raise the noise until no model qualifies, or lower the true saving until it disappears inside its own uncertainty.</p>
+    </div>
+
+    <div class="explorer" data-benchmark style="max-width:var(--wide);margin:0 auto 64px">
+      <div class="controls" role="group" aria-label="Explainer controls">
+        <div class="control"><span>Synthetic building</span>
+          <div class="seg" data-bm="shape">
+            <button type="button" data-value="heating">Mostly heating</button>
+            <button type="button" data-value="cooling">Mostly cooling</button>
+            <button type="button" data-value="both">Both</button>
+          </div>
+        </div>
+        <label class="control"><span>Noise in the data: <output data-bm="noise-out"></output></span>
+          <input type="range" min="1" max="12" step="1" data-bm="noise"></label>
+        <label class="control"><span>True saving after go-live: <output data-bm="saving-out"></output></span>
+          <input type="range" min="0" max="30" step="1" data-bm="saving"></label>
+        <button class="btn btn-ghost" type="button" data-bm="reseed" style="align-self:end">New random year</button>
+      </div>
+      <p class="panel" data-bm="verdict" style="margin:0;font-size:16px;padding:18px 22px"></p>
+      <div class="pair">
+        <figure class="panel" style="margin:0">
+          <h3>The tournament</h3>
+          <p class="sub">Energy per day against outdoor temperature. Every model is fitted to the baseline year, and the best compliant one becomes the benchmark.</p>
+          <div class="chart" data-bm="fit" role="img" aria-label="Energy per day against outdoor temperature with the fitted change-point models; the table lists each model's statistics."></div>
+        </figure>
+        <figure class="panel" style="margin:0">
+          <h3>What the benchmark claims</h3>
+          <p class="sub">After go-live, the benchmark projects what the building would have used. The saving is the gap, and it only counts if it clears the noise.</p>
+          <div class="chart" data-bm="time" role="img" aria-label="Monthly energy over two years with the projected baseline and its noise band after go-live."></div>
+        </figure>
+      </div>
+      <div class="panel">
+        <h3>Candidate models</h3>
+        <div class="table-wrap" data-bm="table"></div>
+        <p class="sub" style="margin:12px 0 0">CV(RMSE) and NMBE on monthly totals, counting change points as parameters. The uncertainty of the saving is the Guideline 14 fractional savings uncertainty without autocorrelation, at 90% confidence.</p>
+      </div>
+    </div>
+
+    <a class="next" href="patent.html"><span>Next project</span><strong>Patent and synthetic data →</strong></a>
+  </div></main>
+
+  <footer class="night site-footer" id="contact">
+    <svg class="isotherms" aria-hidden="true" data-seed="23"></svg>
+    <div class="wrap" style="position:relative">
+      <h2>Get in touch.</h2>
+      <p>If you'd like to talk about a role or a project, write to me.</p>
+      <div class="actions">
+        <a class="btn btn-amber" href="mailto:mariaemvalente13@gmail.com">mariaemvalente13@gmail.com</a>
+        <a class="btn btn-ghost-light" href="../Elisa_Valente_Portfolio.pdf">Download the PDF</a>
+      </div>
+      <div class="fine"><span>© 2026 Elisa Valente</span><span>Simulated and anonymised data only. The work shown was done at Bandora Systems.</span></div>
+    </div>
+  </footer>
+</body>
+</html>

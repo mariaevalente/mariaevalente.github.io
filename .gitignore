@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+.claude/
+tools/denylist.local.txt
+# Originals stay local: full-size files with GPS metadata, and the EPK has a phone number.
+img/elisa.JPG
+img/trips/
+img/*.pdf
+# Camera originals anywhere in the tree (they carry GPS); the site only uses the JPEGs from tools/make_gallery.py.
+*.heic
+*.cr2

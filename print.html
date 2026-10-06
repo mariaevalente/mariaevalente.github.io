@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elisa Valente Portfolio PDF</title>
+  <meta name="description" content="Source of the seven-page landscape PDF of Elisa Valente's portfolio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css?v=2026100604">
+  <script src="assets/vendor/plotly.min.js" defer></script>
+  <script type="module" src="assets/js/isotherms.js?v=2026100604"></script>
+  <script type="module" src="assets/js/explorer.js?v=2026100604"></script>
+  <script type="module" src="assets/js/results.js?v=2026100604"></script>
+  <style>
+    @page { size: 297mm 210mm; margin: 0; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    html, body { background: #e9edf3; }
+    body { font-size: 12.5px; line-height: 1.55; }
+    .page {
+      width: 297mm; height: 209.6mm; position: relative; overflow: hidden; background: #fff;
+      margin: 0 auto 8mm; break-after: page; padding: 15mm 16mm 0;
+    }
+    section.page:last-of-type { break-after: auto; }
+    @media print { html, body { background: #fff; } .page { margin: 0; } }
+    .page.night { padding: 0; background: var(--night); }
+    .grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 12mm; height: 166mm; }
+    .grid.even { grid-template-columns: 1fr 1fr; }
+    .text h2 { font-size: 26px; margin-bottom: 8px; }
+    .text .kind { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+    .text p { color: var(--ink-2); margin-bottom: 9px; }
+    .text .role { font-size: 12px; color: var(--ink); border-top: 1px solid var(--line); padding-top: 9px; margin-top: 12px; }
+    .text .role b { font-weight: 600; }
+    .figs { display: grid; gap: 5mm; align-content: start; }
+    .panel { box-shadow: none; padding: 10px 12px 6px; }
+    .panel h3 { font-size: 13px; margin-bottom: 2px; }
+    .panel .sub { font-size: 11px; margin-bottom: 4px; }
+    .chart { min-height: 0; }
+    .nums { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm 8mm; margin: 6mm 0 2mm; }
+    .nums div { border-top: 2px solid var(--ink); padding-top: 6px; }
+    .nums .num { font-family: var(--mono); font-size: 22px; font-weight: 500; letter-spacing: -0.03em; display: block; line-height: 1.2; }
+    .nums .what { color: var(--ink-2); font-size: 11.5px; display: block; margin-top: 3px; line-height: 1.4; }
+    .foot { position: absolute; left: 16mm; right: 16mm; bottom: 9mm; display: flex; justify-content: space-between; font-size: 10.5px; color: var(--muted); }
+    .night .foot { color: var(--on-night-2); }
+
+    .cover { height: 210mm; display: flex; flex-direction: column; justify-content: space-between; padding: 18mm 20mm 16mm; position: relative; }
+    .cover h1 { font-size: 64px; color: #fff; letter-spacing: -0.035em; margin: 0 0 14px; }
+    .cover .pitch { font-size: 20px; color: var(--on-night); max-width: 160mm; line-height: 1.45; margin: 0 0 10px; }
+    .cover .where { color: var(--on-night-2); font-size: 14px; margin: 0; }
+    .cover .contact { display: flex; gap: 14mm; font-size: 13px; color: var(--on-night); }
+    .cover .contact b { color: var(--amber); font-weight: 500; display: block; font-size: 11px; margin-bottom: 2px; }
+    .cover .top { font-family: var(--display); font-weight: 700; font-size: 15px; color: #fff; }
+    .cover .top span { color: var(--amber); }
+
+    .timeline-h { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5mm; margin-top: 8mm; border-top: 1px solid var(--line); padding-top: 5mm; }
+    .timeline-h dt { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .timeline-h dd { margin: 3px 0 0; font-size: 12px; }
+
+    .explorer { gap: 6px; }
+    .explorer .controls, .explorer details, .explorer .note { display: none !important; }
+    .vc-panel { padding: 6px 6px 0; }
+    .vc-head h4 { font-size: 12px; }
+    .vc-kpis { font-size: 10.5px; }
+    .vc-chart.compact { height: 122px; }
+    .legend-modes { font-size: 11px; }
+    .shot { border: 1px solid var(--line); border-radius: 12px; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    pre.code { font-size: 11.5px; padding: 16px 18px; }
+    .patent { box-shadow: none; padding: 16px 18px; }
+    .patent h3 { font-size: 15px; margin-bottom: 10px; }
+    .patent dl { font-size: 12px; margin-bottom: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- 1 · Cover -->
+  <section class="page night">
+    <svg class="isotherms" aria-hidden="true" data-seed="11" data-static></svg>
+    <div class="cover">
+      <div class="top">Elisa Valente<span>.</span></div>
+      <div>
+        <div style="display:flex;align-items:center;gap:10mm;margin-bottom:14px">
+          <img src="img/elisa-portrait.jpg" alt="Portrait of Elisa Valente" style="width:44mm;height:44mm;border-radius:50%;box-shadow:0 0 0 4px rgba(255,255,255,.14)">
+          <h1 style="margin:0">Elisa Valente</h1>
+        </div>
+        <p class="pitch">I build machine-learning systems that make decisions in the real world, and the data, simulation and evaluation work that makes them trustworthy.</p>
+        <p class="where">Currently R&amp;D Tech Lead at Bandora Systems, Portugal</p>
+      </div>
+      <div class="contact">
+        <div><b>Email</b>mariaemvalente13@gmail.com</div>
+        <div><b>Interactive portfolio</b>mariaevalente.github.io</div>
+        <div><b>Based in</b>Viana do Castelo, Portugal</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · Profile -->
+  <section class="page">
+    <div class="grid even" style="height:auto">
+      <div class="text">
+        <h2>About</h2>
+        <p>I'm a computer engineer. I studied at the University of Minho, specialising in data science and intelligent systems, and did my master's research at UCL on adversarial deep learning for network anomaly detection.</p>
+        <p>I joined Bandora in 2021 as a data scientist and have led its R&amp;D since May 2026. My work sits between machine learning, building physics and software engineering, and I like carrying an idea from the first experiment to something a client uses.</p>
+        <p>I also set up the team's engineering standards, mentor interns and master's students, and give talks inside and outside the company.</p>
+        <p>Outside work I travel with a camera, and I write and sing as Lara Blue.</p>
+      </div>
+      <div class="nums" style="margin-top:0">
+        <div><span class="num">1st inventor</span><span class="what">of patent application WO 2026/033501, HVAC control with models pre-trained on digital-twin data</span></div>
+        <div><span class="num">−26%</span><span class="what">HVAC energy of my predictive controller against fixed schedules, ten simulated buildings</span></div>
+        <div><span class="num">10 of 10</span><span class="what">buildings more comfortable than with the rule-based controller, with slightly less energy</span></div>
+        <div><span class="num">Ai4 2024</span><span class="what">speaker in Las Vegas on synthetic data for building control, and at AI Nest 2026</span></div>
+      </div>
+    </div>
+    <dl class="timeline-h">
+      <div><dt>2015–2020</dt><dd>BSc and MSc, Computer Science and Engineering, University of Minho</dd></div>
+      <div><dt>2020</dt><dd>Master's research, University College London</dd></div>
+      <div><dt>2021</dt><dd>Data Scientist, Bandora Systems</dd></div>
+      <div><dt>2024</dt><dd>Patent priority filed. Speaker at Ai4, Las Vegas</dd></div>
+      <div><dt>2026</dt><dd>R&amp;D Tech Lead. Patent published. Speaker at AI Nest</dd></div>
+    </dl>
+    <div class="grid even" style="height:auto;margin-top:8mm">
+      <div class="text">
+        <h3 style="font-size:15px;margin-bottom:6px">What I bring</h3>
+        <p><b style="color:var(--ink)">Ideas taken all the way</b>, from the first experiment to something a client uses.</p>
+        <p><b style="color:var(--ink)">Evaluation I can defend</b>: baselines, measurement and verification, and honest comparisons.</p>
+        <p><b style="color:var(--ink)">Tools other people use</b>: a language for control rules, a reporting platform, team standards.</p>
+        <p><b style="color:var(--ink)">Clear communication</b> through client reports, talks and documentation.</p>
+      </div>
+      <div class="text">
+        <h3 style="font-size:15px;margin-bottom:6px">Talks</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm">
+          <figure style="margin:0"><img src="img/talk/ai4-title.jpg" alt="Ai4 2024 title slide" style="border-radius:8px;width:100%"><figcaption style="font-size:11px;color:var(--muted);margin-top:4px">Ai4 2024, Las Vegas</figcaption></figure>
+          <figure style="margin:0"><img src="img/talk/ainest-title.jpg" alt="AI Nest 2026 title slide" style="border-radius:8px;width:100%"><figcaption style="font-size:11px;color:var(--muted);margin-top:4px">AI Nest 2026, Coimbra</figcaption></figure>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>Elisa Valente</span><span>2</span></div>
+  </section>
+
+  <!-- 3 · Predictive control -->
+  <section class="page">
+    <div class="grid">
+      <div class="figs" data-results="data/results/arrow_results.json" data-height="250">
+        <div class="panel"><h3>Energy against the fixed schedule</h3><p class="sub">Annual HVAC energy change per building. Negative is a saving.</p><div class="chart" data-chart="energy"></div></div>
+        <div class="panel"><h3>Comfort and energy against the rule-based controller</h3><p class="sub">Each dot is a building. The shaded quarter is less energy and less discomfort.</p><div class="chart" data-chart="comfort"></div></div>
+      </div>
+      <div class="text">
+        <p class="kind">Research, 2025–2026</p>
+        <h2>Predictive HVAC control</h2>
+        <p>A controller that forecasts every zone 30 minutes ahead and, every 15 minutes, picks the least energy-intensive action that keeps the occupied zones comfortable.</p>
+        <p>I tested it on ten simulated buildings, six ASHRAE prototypes and four digital twins of real buildings, over a full year. Each building ran under a fixed schedule, a rule-based controller and the predictive controller, with the same weather, occupancy and constraints.</p>
+        <div class="nums">
+          <div><span class="num">−25.6%</span><span class="what">energy against the fixed schedule</span></div>
+          <div><span class="num">−46%</span><span class="what">discomfort against the rule-based controller</span></div>
+          <div><span class="num">6.4×</span><span class="what">fewer candidate actions per decision in the second generation</span></div>
+          <div><span class="num">0.35 °C</span><span class="what">closed-loop forecast error, 30 minutes ahead</span></div>
+        </div>
+        <p class="role"><b>Role</b> Technical lead and main developer. The decision method is proprietary and is shown only through its results.</p>
+      </div>
+    </div>
+    <div class="foot"><span>Elisa Valente</span><span>3</span></div>
+  </section>
+
+  <!-- 4 · The Valente chart -->
+  <section class="page">
+    <div class="grid">
+      <div class="explorer" data-explorer data-compact-height="122"
+           data-building="quick_service_restaurant_modified" data-zone="2" data-date="2021-11-05" data-controller="compare" data-span="day"
+           data-buildings='[{"id":"quick_service_restaurant_modified","label":"Quick-service restaurant"}]'>
+        <div class="controls">
+          <select data-building></select><select data-zone></select>
+          <div class="seg" data-controller><button data-value="compare"></button></div>
+          <div class="seg" data-span><button data-value="day"></button></div>
+          <button data-prev></button><input type="date" data-date><button data-next></button>
+        </div>
+        <div class="vc-year" data-year style="display:none"></div>
+        <div class="legend-modes" data-legend></div>
+        <div data-panels></div>
+      </div>
+      <div class="text">
+        <p class="kind">Visual analytics</p>
+        <h2>The Valente chart</h2>
+        <p>The view I designed to show what the equipment did and how the room responded, on one time axis: running periods coloured by mode, the comfort range during opening hours, the setpoint and the room temperature. It closes every monthly client report.</p>
+        <p>Here, 5 November in a simulated restaurant kitchen. The predictive controller holds the range with the fan alone. The fixed schedule heats all day for the same temperatures at about twice the energy. The rule-based controller cycles the cooling and leaves the kitchen above range for half its opening hours.</p>
+        <p class="role"><b>Online</b> A full year for three buildings, day by day, at mariaevalente.github.io.</p>
+      </div>
+    </div>
+    <div class="foot"><span>Elisa Valente</span><span>4</span></div>
+  </section>
+
+  <!-- 5 · Reporting platform -->
+  <section class="page">
+    <div class="grid">
+      <img class="shot" src="img/report-preview.jpg" alt="First page of a client report" style="height:166mm">
+      <div class="text">
+        <p class="kind">Product engineering, 2026</p>
+        <h2>Analytics and reporting platform</h2>
+        <p>A Streamlit application over the company's asset model (PostgreSQL) and time-series store (MongoDB). For a building or a portfolio it shows what the controller did, the comfort it held, what was consumed and saved, and how complete the data is. Every month it writes a single HTML report for the client.</p>
+        <p>The report shown runs the production renderer on the simulated restaurant, April to June, against the same building on a fixed schedule.</p>
+        <div class="nums">
+          <div><span class="num">13 s → 3 ms</span><span class="what">filtered time-series read after the index work</span></div>
+          <div><span class="num">4× faster</span><span class="what">monthly report: under 14 seconds instead of almost a minute</span></div>
+          <div><span class="num">5 pages</span><span class="what">about 14,000 lines of Python</span></div>
+          <div><span class="num">Docker</span><span class="what">multi-stage, non-root, behind an authenticating proxy</span></div>
+        </div>
+        <p class="role"><b>Role</b> Sole developer.</p>
+      </div>
+    </div>
+    <div class="foot"><span>Elisa Valente</span><span>5</span></div>
+  </section>
+
+  <!-- 6 · Benchmark and patent -->
+  <section class="page">
+    <div class="grid even">
+      <div class="text">
+        <p class="kind">Measurement and verification, 2023–2026</p>
+        <h2>Savings benchmark</h2>
+        <svg viewBox="0 0 640 330" style="width:100%;height:auto;margin:4px 0 10px" role="img" aria-label="Illustration of change-point baseline models fitted to monthly energy against outdoor temperature.">
+          <g stroke="#e2e8f0" stroke-width="1"><line x1="40" y1="300" x2="620" y2="300"/><line x1="40" y1="220" x2="620" y2="220"/><line x1="40" y1="140" x2="620" y2="140"/><line x1="40" y1="60" x2="620" y2="60"/></g>
+          <polyline points="60,120 240,270 400,270 610,80" fill="none" stroke="#b6c0cf" stroke-width="2" stroke-dasharray="6 6"/>
+          <polyline points="60,98 230,262 380,262 610,66" fill="none" stroke="#0d9488" stroke-width="3"/>
+          <g fill="#0d9488" stroke="#fff" stroke-width="2"><circle cx="74" cy="110" r="7"/><circle cx="114" cy="148" r="7"/><circle cx="156" cy="186" r="7"/><circle cx="196" cy="226" r="7"/><circle cx="228" cy="258" r="7"/><circle cx="276" cy="266" r="7"/><circle cx="322" cy="254" r="7"/><circle cx="368" cy="268" r="7"/><circle cx="430" cy="240" r="7"/><circle cx="478" cy="190" r="7"/><circle cx="530" cy="138" r="7"/><circle cx="590" cy="88" r="7"/></g>
+          <g fill="#d97706" stroke="#fff" stroke-width="2"><circle cx="96" cy="160" r="7"/><circle cx="178" cy="234" r="7"/><circle cx="256" cy="290" r="7"/><circle cx="346" cy="288" r="7"/><circle cx="456" cy="254" r="7"/><circle cx="566" cy="166" r="7"/></g>
+        </svg>
+        <p>When a contract is paid from savings, the baseline is what gets invoiced. I set up the climate-corrected baseline and supervised its move to a tournament of ASHRAE Guideline 14 change-point models: the most accurate one meeting CV(RMSE) ≤ 15% and |NMBE| ≤ 5% becomes the benchmark.</p>
+        <div class="nums" style="margin-top:4mm">
+          <div><span class="num">31 of 32</span><span class="what">buildings with a compliant model</span></div>
+          <div><span class="num">5.6%</span><span class="what">median CV(RMSE) of the models selected</span></div>
+        </div>
+        <p class="role"><b>Role</b> Method design and supervision. Implemented by a building analyst.</p>
+      </div>
+      <div class="text">
+        <p class="kind">Patent and talks, 2022–2026</p>
+        <h2>Patent and synthetic data</h2>
+        <div class="patent" style="margin:4px 0 12px">
+          <div class="no">WO 2026/033501 A1</div>
+          <h3>Method for controlling HVAC equipment of a building, computer system and computer program product thereof</h3>
+          <dl><dt>Inventors</dt><dd><strong>Maria Elisa Maciel Valente</strong>, R. Teixeira, G. Karafotias, M. Pereira</dd><dt>Priority</dt><dd>9 August 2024</dd><dt>Published</dt><dd>12 February 2026</dd></dl>
+        </div>
+        <p>A new building has no useful history to learn from. The method pre-trains the energy and temperature forecasters on synthetic data from the building's digital twin, combined with whatever was measured, so that control works from the first day.</p>
+        <p>It grew out of a 2022 warm-up optimiser, XGBoost forecasts searched with simulated annealing, that cut HVAC cost inside the morning warm-up window by 27 to 45% in simulation. I presented the approach at Ai4 2024 in Las Vegas and at AI Nest 2026 in Coimbra.</p>
+        <p class="role"><b>Role</b> First inventor.</p>
+      </div>
+    </div>
+    <div class="foot"><span>Elisa Valente</span><span>6</span></div>
+  </section>
+
+  <!-- 7 · Simulation platform and BuildFlow -->
+  <section class="page">
+    <div class="grid even">
+      <div class="text">
+        <p class="kind">Platform, 2025–2026</p>
+        <h2>A simulation platform for any building</h2>
+        <svg class="diagram" viewBox="0 0 640 300" style="margin:4px 0 10px" role="img" aria-label="A building spec file at the centre, read by the simulation model, training data, zone models, controllers, sanity checks and the viewer.">
+          <defs><marker id="ahp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0d9488"/></marker></defs>
+          <g font-size="15">
+            <rect class="box accent" x="230" y="110" width="180" height="80" rx="14"/><text x="320" y="146" text-anchor="middle" font-weight="600">building.toml</text><text x="320" y="168" text-anchor="middle" class="sub" font-size="13">one file per building</text>
+            <rect class="box" x="20" y="20" width="170" height="52" rx="12"/><text x="105" y="52" text-anchor="middle">Simulation model</text>
+            <rect class="box" x="20" y="124" width="170" height="52" rx="12"/><text x="105" y="156" text-anchor="middle">Training data</text>
+            <rect class="box" x="20" y="228" width="170" height="52" rx="12"/><text x="105" y="260" text-anchor="middle">Zone models</text>
+            <rect class="box" x="450" y="20" width="170" height="52" rx="12"/><text x="535" y="52" text-anchor="middle">Controllers</text>
+            <rect class="box" x="450" y="124" width="170" height="52" rx="12"/><text x="535" y="156" text-anchor="middle">Sanity checks</text>
+            <rect class="box" x="450" y="228" width="170" height="52" rx="12"/><text x="535" y="260" text-anchor="middle">Viewer</text>
+            <g stroke="#0d9488" stroke-width="1.6" fill="none" marker-end="url(#ahp)"><path d="M228 126 L194 72"/><path d="M228 150 H194"/><path d="M228 174 L194 228"/><path d="M412 126 L446 72"/><path d="M412 150 H446"/><path d="M412 174 L446 228"/></g>
+          </g>
+        </svg>
+        <p>One TOML file describes a building: zones, comfort ranges, opening hours, equipment and its command map. Simulation, data generation, training, the controllers and the checks all read it, so a new building is a new file instead of new code. 71 buildings and archetypes use the format. I also designed the team's reproducibility workflow with DVC, MLflow and Git.</p>
+        <p class="role"><b>Role</b> Spec schema, API layer and sanity tests. Testbed built with the R&amp;D team.</p>
+      </div>
+      <div class="text">
+        <p class="kind">Language design, 2023–2024</p>
+        <h2>BuildFlow</h2>
+        <pre class="code" style="margin:4px 0 12px"><span class="tok-k">if</span> <span class="tok-f">comfort_less</span>([<span class="tok-n">1</span>, <span class="tok-n">2</span>]) &gt; <span class="tok-n">0</span>:
+    <span class="tok-f">ACTUATION</span>([<span class="tok-n">1</span>], [[<span class="tok-s">"Mode"</span>, <span class="tok-s">"Cooling"</span>]], [])
+<span class="tok-k">else</span>:
+    <span class="tok-k">if</span> <span class="tok-f">comfort_less</span>([<span class="tok-n">1</span>, <span class="tok-n">2</span>]) &lt; <span class="tok-n">0</span>:
+        <span class="tok-f">ACTUATION</span>([<span class="tok-n">1</span>], [[<span class="tok-s">"Mode"</span>, <span class="tok-s">"Heating"</span>]], [])
+    <span class="tok-k">else</span>:
+        <span class="tok-f">ACTUATION</span>([<span class="tok-n">1</span>], [[<span class="tok-s">"Mode"</span>, <span class="tok-s">"Fan"</span>]], []);</pre>
+        <p>A small domain-specific language for expert control rules, with its own PLY parser, a compiler to JSON and an interpreter. Engineers write and review the rules, and the production rule engine runs them. Six production controllers are written in it.</p>
+        <p class="role"><b>Role</b> Designer and developer.</p>
+        <div style="margin-top:9mm;padding:6mm 7mm;background:var(--night);border-radius:14px;color:var(--on-night)">
+          <div style="font-family:var(--display);font-weight:600;font-size:17px;color:#fff;margin-bottom:4px">More at mariaevalente.github.io</div>
+          <div style="font-size:12px;color:var(--on-night-2)">The explorable Valente chart, the full client report and the benchmark explainer. mariaemvalente13@gmail.com</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>Elisa Valente</span><span>7</span></div>
+  </section>
+</body>
+</html>

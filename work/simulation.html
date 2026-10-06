@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulation Platform · Elisa Valente</title>
+  <meta name="description" content="One declarative building description that every simulation, training and control tool reads.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230b1220'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-size='14' font-weight='700' text-anchor='middle' fill='%23f59e0b'%3EEV%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/css/site.css?v=2026100604">
+  <script type="module" src="../assets/js/isotherms.js?v=2026100604"></script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker>
+    <marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrowhead accent"/></marker>
+  </defs></svg>
+
+  <div class="night">
+    <svg class="isotherms" aria-hidden="true" data-seed="73"></svg>
+    <header class="site-header"><div class="wrap">
+      <a class="mark" href="../index.html">Elisa Valente<span>.</span></a>
+      <nav class="menu" aria-label="Main"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a class="opt" href="../Elisa_Valente_Portfolio.pdf">PDF</a><a href="#contact">Contact</a></nav>
+    </div></header>
+    <div class="case-hero"><div class="wrap">
+      <a class="back" href="../index.html#work">All work</a>
+      <h1>A simulation platform for any building</h1>
+      <p class="summary">One file describes a building, and every tool reads it: simulation, data generation, training, the controllers and the checks.</p>
+      <dl class="meta">
+        <div><dt>Role</dt><dd>Spec schema, API layer and sanity tests</dd></div>
+        <div><dt>Team</dt><dd>Testbed built with the R&amp;D team</dd></div>
+        <div><dt>Years</dt><dd>2025–2026</dd></div>
+        <div><dt>Stack</dt><dd>EnergyPlus, Python plugins, TOML, cloud VMs</dd></div>
+      </dl>
+    </div></div>
+  </div>
+
+  <main class="case"><div class="wrap">
+    <div class="block">
+      <h2>Why one file</h2>
+      <p>Controllers, training data and evaluation all need the same facts about a building: its zones and comfort ranges, its equipment and how the units depend on each other, its opening hours, and the map of sensors and commands. Without a shared description, each new building needed hand-written setup in several places. I made those facts a single declarative file that every tool reads. A new building, or a new kind of building, is now a new file.</p>
+    </div>
+
+    <figure class="panel">
+      <div class="scroll-x">
+        <svg class="diagram" viewBox="0 0 960 360" style="min-width:700px" role="img" aria-label="The building spec at the centre, read by the simulation model, the scenario generator, model training, the controllers, the sanity checks and the viewer; the production platform is designed to share the same interface.">
+          <g font-size="13.5">
+            <rect class="box accent" x="365" y="118" width="230" height="124" rx="14"/>
+            <text x="480" y="148" text-anchor="middle" font-weight="700" font-size="15">building.toml</text>
+            <text x="480" y="168" text-anchor="middle" class="sub" font-size="12">one file per building</text>
+            <text x="480" y="192" text-anchor="middle" class="sub" font-size="12">zones, comfort, opening hours</text>
+            <text x="480" y="210" text-anchor="middle" class="sub" font-size="12">devices and how they relate</text>
+            <text x="480" y="228" text-anchor="middle" class="sub" font-size="12">sensor and command map</text>
+            <rect class="box" x="20" y="20" width="250" height="66" rx="12"/>
+            <text x="145" y="48" text-anchor="middle" font-weight="600">Simulation model</text>
+            <text x="145" y="68" text-anchor="middle" class="sub" font-size="12">EnergyPlus model and control bridge</text>
+            <rect class="box" x="20" y="146" width="250" height="66" rx="12"/>
+            <text x="145" y="174" text-anchor="middle" font-weight="600">Scenario generator</text>
+            <text x="145" y="194" text-anchor="middle" class="sub" font-size="12">constrained actuation plans</text>
+            <rect class="box" x="20" y="272" width="250" height="66" rx="12"/>
+            <text x="145" y="300" text-anchor="middle" font-weight="600">Model training</text>
+            <text x="145" y="320" text-anchor="middle" class="sub" font-size="12">one model per zone and mode</text>
+            <rect class="box" x="690" y="20" width="250" height="66" rx="12"/>
+            <text x="815" y="48" text-anchor="middle" font-weight="600">Controllers</text>
+            <text x="815" y="68" text-anchor="middle" class="sub" font-size="12">schedule, rule-based, predictive</text>
+            <rect class="box" x="690" y="146" width="250" height="66" rx="12"/>
+            <text x="815" y="174" text-anchor="middle" font-weight="600">Sanity checks</text>
+            <text x="815" y="194" text-anchor="middle" class="sub" font-size="12">automated, for every building</text>
+            <rect class="box" x="690" y="272" width="250" height="66" rx="12"/>
+            <text x="815" y="300" text-anchor="middle" font-weight="600">Viewer and comparison</text>
+            <text x="815" y="320" text-anchor="middle" class="sub" font-size="12">indicators, Valente chart, decision logs</text>
+            <path class="edge accent" d="M363 150 L272 70" marker-end="url(#arrow-accent)"/>
+            <path class="edge accent" d="M363 180 H274" marker-end="url(#arrow-accent)"/>
+            <path class="edge accent" d="M363 210 L272 292" marker-end="url(#arrow-accent)"/>
+            <path class="edge accent" d="M597 150 L688 70" marker-end="url(#arrow-accent)"/>
+            <path class="edge accent" d="M597 180 H686" marker-end="url(#arrow-accent)"/>
+            <path class="edge accent" d="M597 210 L688 292" marker-end="url(#arrow-accent)"/>
+            <rect class="box soft" x="365" y="282" width="230" height="56" rx="12" stroke-dasharray="5 4"/>
+            <text x="480" y="306" text-anchor="middle" font-weight="600">Production platform</text>
+            <text x="480" y="324" text-anchor="middle" class="sub" font-size="12">designed to share the same interface</text>
+            <path class="edge" d="M480 244 V278" marker-end="url(#arrow)"/>
+          </g>
+        </svg>
+      </div>
+    </figure>
+
+    <div class="pair" style="max-width:var(--wide);margin:0 auto 64px;align-items:start">
+      <pre class="code" aria-label="Excerpt of a building spec"><span class="tok-c"># Excerpt: stand-alone retail prototype</span>
+<span class="tok-k">[building]</span>
+building_use      = <span class="tok-s">"Retail"</span>
+hvac_topologies   = [<span class="tok-s">"RTU"</span>]
+time_step         = <span class="tok-n">15</span>
+epw_filename      = <span class="tok-s">"PRT_Lisboa.085360_INETI.epw"</span>
+
+<span class="tok-k">[[zones]]</span>
+id            = <span class="tok-n">2</span>
+name          = <span class="tok-s">"Core_Retail"</span>
+comfort_range = [<span class="tok-n">21</span>, <span class="tok-n">24</span>]
+periods       = [<span class="tok-n">1</span>]
+
+<span class="tok-k">[[devices]]</span>
+id      = <span class="tok-n">2</span>
+name    = <span class="tok-s">"PSZ-AC:2_Unitary_Package_DX"</span>
+zone_id = [<span class="tok-n">2</span>]
+type    = <span class="tok-s">"RTU_SYSTEM"</span>
+
+<span class="tok-k">[[device_device]]</span>
+device_parent_id = <span class="tok-n">2</span>
+device_child_id  = [<span class="tok-n">2</span>]
+relation_type    = <span class="tok-s">"MASTER"</span>
+
+<span class="tok-k">[[schedules]]</span>
+days              = [<span class="tok-n">1</span>, <span class="tok-n">2</span>, <span class="tok-n">3</span>, <span class="tok-n">4</span>, <span class="tok-n">5</span>]
+bld_working_hours = [<span class="tok-s">"08:00"</span>, <span class="tok-s">"21:00"</span>]
+
+<span class="tok-k">[[variable]]</span>
+name            = <span class="tok-s">"device_2_mode_full"</span>
+kind            = <span class="tok-s">"mode_full"</span>
+actuator_type   = <span class="tok-s">"rw"</span>
+variable_values = [<span class="tok-s">"fan"</span>, <span class="tok-s">"heat"</span>, <span class="tok-s">"cool"</span>]</pre>
+      <div class="numbers" style="grid-template-columns:1fr 1fr;margin:0">
+        <div><span class="num">71</span><span class="what">buildings and archetypes in the same format, across 6 uses and 8 HVAC topologies</span></div>
+        <div><span class="num">87 zones</span><span class="what">in the largest one, an office with 39 devices; the smallest has one zone</span></div>
+        <div><span class="num">15 × 35,040</span><span class="what">fifteen-minute steps of training scenarios per building</span></div>
+        <div><span class="num">294</span><span class="what">zone models trained by the same pipeline</span></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Running it</h2>
+      <p>The whole run is seven scripted steps: generate the scenarios, simulate them, train the models, report on them, and run the three controllers on the same year. It runs unattended on cloud VMs. I wrote the spec schema, its API layer and the sanity tests that every new building has to pass, and I generalised the controller so that it reads nothing but the spec.</p>
+      <h2 style="margin-top:36px">Reproducibility</h2>
+      <p>I designed and documented the team's experiment workflow. Calibration, data generation and training are separate stages, each tagged in Git. DVC versions the data and the models in cloud storage, and MLflow records every run with the exact inputs and commit IDs it used, so any result can be traced back to how it was made.</p>
+    </div>
+
+    <a class="next" href="buildflow.html"><span>Next project</span><strong>BuildFlow →</strong></a>
+  </div></main>
+
+  <footer class="night site-footer" id="contact">
+    <svg class="isotherms" aria-hidden="true" data-seed="23"></svg>
+    <div class="wrap" style="position:relative">
+      <h2>Get in touch.</h2>
+      <p>If you'd like to talk about a role or a project, write to me.</p>
+      <div class="actions">
+        <a class="btn btn-amber" href="mailto:mariaemvalente13@gmail.com">mariaemvalente13@gmail.com</a>
+        <a class="btn btn-ghost-light" href="../Elisa_Valente_Portfolio.pdf">Download the PDF</a>
+      </div>
+      <div class="fine"><span>© 2026 Elisa Valente</span><span>Simulated and anonymised data only. The work shown was done at Bandora Systems.</span></div>
+    </div>
+  </footer>
+</body>
+</html>

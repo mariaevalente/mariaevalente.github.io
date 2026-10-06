@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Predictive HVAC Control · Elisa Valente</title>
+  <meta name="description" content="A predictive HVAC controller tested on ten simulated buildings against a fixed schedule and a rule-based controller.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230b1220'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-size='14' font-weight='700' text-anchor='middle' fill='%23f59e0b'%3EEV%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/css/site.css?v=2026100604">
+  <script src="../assets/vendor/plotly.min.js" defer></script>
+  <script type="module" src="../assets/js/isotherms.js?v=2026100604"></script>
+  <script type="module" src="../assets/js/results.js?v=2026100604"></script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker>
+    <marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrowhead accent"/></marker>
+  </defs></svg>
+
+  <div class="night">
+    <svg class="isotherms" aria-hidden="true" data-seed="31"></svg>
+    <header class="site-header"><div class="wrap">
+      <a class="mark" href="../index.html">Elisa Valente<span>.</span></a>
+      <nav class="menu" aria-label="Main"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a class="opt" href="../Elisa_Valente_Portfolio.pdf">PDF</a><a href="#contact">Contact</a></nav>
+    </div></header>
+    <div class="case-hero"><div class="wrap">
+      <a class="back" href="../index.html#work">All work</a>
+      <h1>Predictive HVAC control</h1>
+      <p class="summary">A controller that forecasts every zone 30 minutes ahead and, every 15 minutes, picks the least energy-intensive action that keeps the occupied zones comfortable.</p>
+      <dl class="meta">
+        <div><dt>Role</dt><dd>Technical lead and main developer</dd></div>
+        <div><dt>Years</dt><dd>2025–2026</dd></div>
+        <div><dt>Stack</dt><dd>Python, EnergyPlus 24.2, XGBoost, pandas, Streamlit</dd></div>
+        <div><dt>Status</dt><dd>Validated in simulation, moving to pilot buildings</dd></div>
+      </dl>
+    </div></div>
+  </div>
+
+  <main class="case"><div class="wrap">
+    <div class="numbers">
+      <div><span class="num">−25.6%</span><span class="what">mean HVAC energy against the fixed schedule, lower in 8 of 10 buildings</span></div>
+      <div><span class="num">10 of 10</span><span class="what">buildings with less discomfort than the rule-based controller, 46% less on average</span></div>
+      <div><span class="num">−3.7%</span><span class="what">mean energy against the rule-based controller, so the comfort comes with slightly less energy</span></div>
+      <div><span class="num">0.35 °C</span><span class="what">closed-loop error of the 30-minute forecasts, R² 0.98, for a representative zone</span></div>
+    </div>
+
+    <div class="block">
+      <h2>The question</h2>
+      <p>Fixed schedules run whether or not anyone needs them. Rule-based controllers react only after a room has drifted. I wanted to know how much a controller gains by looking ahead, and whether the gain holds across very different buildings.</p>
+    </div>
+
+    <figure class="panel">
+      <div class="scroll-x">
+        <svg class="diagram" viewBox="0 0 960 190" style="min-width:640px" role="img" aria-label="Control loop: read the building every 15 minutes, forecast each zone 30 minutes ahead, choose the cheapest action that keeps every occupied zone comfortable, act, and repeat.">
+          <g font-size="14">
+            <rect class="box" x="10" y="40" width="200" height="86" rx="12"/>
+            <text x="110" y="74" text-anchor="middle" font-weight="600">Read the building</text>
+            <text x="110" y="96" text-anchor="middle" class="sub" font-size="12.5">rooms, units, weather</text>
+            <text x="110" y="113" text-anchor="middle" class="sub" font-size="12.5">every 15 minutes</text>
+            <rect class="box" x="255" y="40" width="200" height="86" rx="12"/>
+            <text x="355" y="74" text-anchor="middle" font-weight="600">Forecast each zone</text>
+            <text x="355" y="96" text-anchor="middle" class="sub" font-size="12.5">30 minutes ahead, per action</text>
+            <text x="355" y="113" text-anchor="middle" class="sub" font-size="12.5">models per zone and mode</text>
+            <rect class="box accent" x="500" y="40" width="220" height="86" rx="12"/>
+            <text x="610" y="74" text-anchor="middle" font-weight="600">Choose the cheapest</text>
+            <text x="610" y="96" text-anchor="middle" class="sub" font-size="12.5">action that keeps every occupied</text>
+            <text x="610" y="113" text-anchor="middle" class="sub" font-size="12.5">zone inside its comfort range</text>
+            <rect class="box" x="765" y="40" width="185" height="86" rx="12"/>
+            <text x="857" y="74" text-anchor="middle" font-weight="600">Act</text>
+            <text x="857" y="96" text-anchor="middle" class="sub" font-size="12.5">on/off, mode, setpoint</text>
+            <text x="857" y="113" text-anchor="middle" class="sub" font-size="12.5">for each unit</text>
+            <path class="edge" d="M212 83 H251" marker-end="url(#arrow)"/>
+            <path class="edge" d="M457 83 H496" marker-end="url(#arrow)"/>
+            <path class="edge accent" d="M722 83 H761" marker-end="url(#arrow-accent)"/>
+            <path class="edge" d="M857 128 V160 H110 V130" marker-end="url(#arrow)"/>
+            <text x="483" y="178" text-anchor="middle" class="sub" font-size="12.5">the room responds and the loop starts again</text>
+            <text x="480" y="22" text-anchor="middle" class="sub" font-size="12.5">Models trained on scenarios simulated from each building's own description</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption>The loop. The decision method is proprietary, so only its results are shown here.</figcaption>
+    </figure>
+
+    <div class="block">
+      <h2>How I tested it</h2>
+      <p>Every controller ran on the same building, over the same simulated year of 35,040 fifteen-minute steps, with the same Lisbon weather, occupancy and constraints. Only the control logic changed. Beating the fixed schedule shows what closing the loop is worth. Beating the rule-based controller shows what prediction adds on top.</p>
+      <p>The ten buildings are six ASHRAE 90.1 prototypes, one of them deliberately degraded, and four digital twins calibrated on real buildings. They range from 3 to 31 zones, and from independent rooftop units to coupled VRF and DOAS systems. I built the whole pipeline: scenario generation in EnergyPlus, 294 forecasting models, the controller as an EnergyPlus plugin, and the comparison tooling.</p>
+    </div>
+
+    <div data-results="../data/results/arrow_results.json">
+      <div class="pair" style="max-width:var(--wide);margin:0 auto 64px">
+        <figure class="panel" style="margin:0">
+          <h3>Energy against the fixed schedule</h3>
+          <p class="sub">Change in annual HVAC energy per building. Negative is a saving.</p>
+          <div class="chart" data-chart="energy" role="img" aria-label="Annual HVAC energy change against the fixed schedule for ten buildings; values in the table below."></div>
+        </figure>
+        <figure class="panel" style="margin:0">
+          <h3>Comfort and energy against the rule-based controller</h3>
+          <p class="sub">Each dot is a building. The shaded quarter means less energy and less discomfort.</p>
+          <div class="chart" data-chart="comfort" role="img" aria-label="Energy change against discomfort change versus the rule-based controller; all ten buildings have less discomfort."></div>
+        </figure>
+      </div>
+
+      <div class="block">
+        <h2>A second generation</h2>
+        <p>Analysing where the first version fell short showed two structural problems. The second version keeps the same forecasts and reworks how a decision is made. It evaluates a median of 6.4 times fewer candidate actions per decision, and finds a fully comfortable action in 79.5% of decisions instead of 57.7%.</p>
+      </div>
+
+      <figure class="panel">
+        <h3>First generation and second generation</h3>
+        <p class="sub">Share of decisions in which a fully comfortable action was found.</p>
+        <div class="chart" data-chart="search" role="img" aria-label="Share of decisions with a fully comfortable action, first versus second generation, per building."></div>
+        <details class="data"><summary>All results as a table</summary><div class="table-wrap" data-table></div></details>
+      </figure>
+    </div>
+
+    <div class="block">
+      <h2>Towards real buildings</h2>
+      <p>Before moving to pilot sites, I built an evaluation harness for models trained on real data:</p>
+      <ul>
+        <li>walk-forward validation;</li>
+        <li>a persistence baseline that every model has to beat, and 20 of 23 free-running models did;</li>
+        <li>a monotonicity test, so that more cooling can never predict a warmer room;</li>
+        <li>an excitation analysis. Only 5 of 17 devices had enough variety in their history to learn from, which made the case for a controlled excitation campaign.</li>
+      </ul>
+    </div>
+
+    <a class="next" href="valente.html"><span>Next project</span><strong>The Valente chart →</strong></a>
+  </div></main>
+
+  <footer class="night site-footer" id="contact">
+    <svg class="isotherms" aria-hidden="true" data-seed="23"></svg>
+    <div class="wrap" style="position:relative">
+      <h2>Get in touch.</h2>
+      <p>If you'd like to talk about a role or a project, write to me.</p>
+      <div class="actions">
+        <a class="btn btn-amber" href="mailto:mariaemvalente13@gmail.com">mariaemvalente13@gmail.com</a>
+        <a class="btn btn-ghost-light" href="../Elisa_Valente_Portfolio.pdf">Download the PDF</a>
+      </div>
+      <div class="fine"><span>© 2026 Elisa Valente</span><span>Simulated and anonymised data only. The work shown was done at Bandora Systems.</span></div>
+    </div>
+  </footer>
+</body>
+</html>

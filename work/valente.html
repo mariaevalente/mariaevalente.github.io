@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Valente Chart · Elisa Valente</title>
+  <meta name="description" content="Explore a full simulated year of HVAC control, day by day, under a predictive controller, a rule-based controller and a fixed schedule.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230b1220'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-size='14' font-weight='700' text-anchor='middle' fill='%23f59e0b'%3EEV%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/css/site.css?v=2026100604">
+  <script src="../assets/vendor/plotly.min.js" defer></script>
+  <script type="module" src="../assets/js/isotherms.js?v=2026100604"></script>
+  <script type="module" src="../assets/js/explorer.js?v=2026100604"></script>
+</head>
+<body>
+  <div class="night">
+    <svg class="isotherms" aria-hidden="true" data-seed="47"></svg>
+    <header class="site-header"><div class="wrap">
+      <a class="mark" href="../index.html">Elisa Valente<span>.</span></a>
+      <nav class="menu" aria-label="Main"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a class="opt" href="../Elisa_Valente_Portfolio.pdf">PDF</a><a href="#contact">Contact</a></nav>
+    </div></header>
+    <div class="case-hero"><div class="wrap">
+      <a class="back" href="../index.html#work">All work</a>
+      <h1>The Valente chart</h1>
+      <p class="summary">A view I designed to show, on one time axis, what the equipment did and how the room responded. Here it runs on a full simulated year for three buildings and three controllers.</p>
+      <dl class="meta">
+        <div><dt>Role</dt><dd>Design and development</dd></div>
+        <div><dt>Used in</dt><dd>Every monthly client report</dd></div>
+        <div><dt>Data on this page</dt><dd>EnergyPlus, ASHRAE 90.1 prototypes, Lisbon weather</dd></div>
+        <div><dt>Stack</dt><dd>Python and Plotly in production, JavaScript here</dd></div>
+      </dl>
+    </div></div>
+  </div>
+
+  <main class="case"><div class="wrap">
+    <div class="block">
+      <h2>Reading it</h2>
+      <p>The shaded bands are the time the units serving a zone were running, coloured by mode. The dotted band is the comfort range, drawn only during opening hours. The orange line is the room, and the cyan step line is the setpoint the controller chose.</p>
+      <p>It opens on 5 November in a restaurant kitchen. The predictive controller keeps the kitchen in range all day with the fan alone. The fixed schedule heats all day for the same temperatures and uses about twice the energy. The rule-based controller cycles the cooling and leaves the kitchen above range for half its opening hours.</p>
+    </div>
+
+    <div class="explorer" data-explorer data-sync-url data-base="../data/valente/"
+         data-building="quick_service_restaurant_modified" data-zone="2" data-date="2021-11-05"
+         data-controller="compare" data-span="day"
+         data-buildings='[{"id":"quick_service_restaurant_modified","label":"Quick-service restaurant (degraded prototype)"},{"id":"medium_office","label":"Medium office (ASHRAE prototype)"},{"id":"stand_alone_retail","label":"Stand-alone retail (ASHRAE prototype)"}]'
+         style="max-width:var(--wide);margin:0 auto 56px">
+      <div class="controls" role="group" aria-label="Chart controls">
+        <label class="control"><span>Building</span><select data-building></select></label>
+        <label class="control"><span>Zone</span><select data-zone></select></label>
+        <div class="control"><span>Controller</span>
+          <div class="seg" data-controller>
+            <button type="button" data-value="compare">All three</button>
+            <button type="button" data-value="arrow">Predictive</button>
+            <button type="button" data-value="reactive">Rule-based</button>
+            <button type="button" data-value="schedule">Schedule</button>
+          </div>
+        </div>
+        <div class="control"><span>Window</span>
+          <div class="seg" data-span>
+            <button type="button" data-value="day">Day</button>
+            <button type="button" data-value="week">Week</button>
+            <button type="button" data-value="month">Month</button>
+          </div>
+        </div>
+        <div class="control"><span>Date</span>
+          <div class="stepper">
+            <button type="button" data-prev aria-label="Previous">◀</button>
+            <input type="date" data-date aria-label="Date">
+            <button type="button" data-next aria-label="Next">▶</button>
+          </div>
+        </div>
+      </div>
+      <p class="note" data-building-note></p>
+      <div class="vc-panel">
+        <div class="vc-head"><h4>The year at a glance: <span data-year-title></span></h4>
+          <span class="note">One cell per hour, coloured by what the equipment mostly did. Click a day to open it.</span></div>
+        <div class="vc-year" data-year></div>
+      </div>
+      <div class="legend-modes" data-legend aria-label="Legend"></div>
+      <div data-panels></div>
+      <details class="data"><summary>Hourly values as a table</summary><div class="table-wrap" data-table></div></details>
+      <p class="note">Drag across a chart to zoom in and double-click to zoom out. The three panels zoom together. The arrow keys step through the year.</p>
+    </div>
+
+    <div class="block">
+      <h2>Other days worth a look</h2>
+      <p>Try a week in August, the medium office, or the retail building in summer. In that building no controller can hold the comfort range in July and August, and the chart shows it as plainly as it shows a good day.</p>
+    </div>
+
+    <a class="next" href="reporting.html"><span>Next project</span><strong>Analytics and reporting platform →</strong></a>
+  </div></main>
+
+  <footer class="night site-footer" id="contact">
+    <svg class="isotherms" aria-hidden="true" data-seed="23"></svg>
+    <div class="wrap" style="position:relative">
+      <h2>Get in touch.</h2>
+      <p>If you'd like to talk about a role or a project, write to me.</p>
+      <div class="actions">
+        <a class="btn btn-amber" href="mailto:mariaemvalente13@gmail.com">mariaemvalente13@gmail.com</a>
+        <a class="btn btn-ghost-light" href="../Elisa_Valente_Portfolio.pdf">Download the PDF</a>
+      </div>
+      <div class="fine"><span>© 2026 Elisa Valente</span><span>Simulated and anonymised data only. The work shown was done at Bandora Systems.</span></div>
+    </div>
+  </footer>
+</body>
+</html>
